@@ -6,7 +6,9 @@ This is an attempt to create a LaTeX template for Thesis presented at the Univer
 Initial Steps
 -------------
 
-This class is based on the standard `book` class of LaTeX, so it accept structure given by *part*s, *chapter*s, *section*s, *subsection*s, *paragraph*s and *subparagraph*s.
+This class is based on the standard `book` class of LaTeX, so it accept structure given by `part`s, `chapter`s, `section`s, `subsection`s, `paragraph`s and `subparagraph`s.
+
+h3. Packages
 
 This class was born in the physics department, so it loads many mathematical packages, such as:
 
@@ -18,3 +20,12 @@ This class was born in the physics department, so it loads many mathematical pac
 - `mathrsfs`
 - `dsfont`
 - `stmaryrd`
+
+Additionally, some useful packages are load:
+
+- `graphicx`: allow the inclusion of figures
+- `xcolor`: allows the use of colours (even their mixing)
+- `hyperref`: allows the use of *hyperlinks*
+- `caption`: allows customisation of captions
+- `tikz`: useful to draw using code
+- `pgfplots`: allows the creation of scientific plots using `tikz`
