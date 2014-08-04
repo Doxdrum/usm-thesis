@@ -19,14 +19,14 @@
 \RequirePackage{graphicx}
 \RequirePackage[margin=20pt,format=hang,font=small,labelfont=sc,textfont=sl]{caption}
 \RequirePackage[Lenny]{fncychap}
-\RequirePackage[linktocpage,colorlinks=true,urlcolor=green,linkcolor=blue,citecolor=red]{hyperref}
+\RequirePackage{xcolor}
+\RequirePackage[linktocpage,colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=red]{hyperref}
 %% \hypersetup{linktocpage}
 \RequirePackage{subfigure}
 \RequirePackage{centernot}
 %% \RequirePackage{wrapfig}
 %% \RequirePackage{fancybox}
 \RequirePackage{array}
-\RequirePackage{xcolor}
 \RequirePackage{tikz}
 \RequirePackage{pgfplots}
 %% \RequirePackage{bclogo}
