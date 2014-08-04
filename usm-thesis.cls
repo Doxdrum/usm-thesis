@@ -29,6 +29,8 @@
 \RequirePackage{array}
 \RequirePackage{tikz}
 \RequirePackage{pgfplots}
+\RequirePackage{pgfplotstable}
+\RequirePackage{siunitx}
 %% \RequirePackage{bclogo}
 %% \RequirePackage[framemethod=tikz]{mdframed}
 
