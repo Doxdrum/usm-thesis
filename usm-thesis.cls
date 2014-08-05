@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{usm-thesis}[01/08/2010 LaTeX package for USM thesis]
+\ProvidesClass{usm-thesis}[2014/08/01 LaTeX package for USM thesis]
 
 
 %--------- Based on `book' class
@@ -18,7 +18,7 @@
 %% \RequirePackage{pdftricks}
 \RequirePackage{graphicx}
 \RequirePackage[margin=20pt,format=hang,font=small,labelfont=sc,textfont=sl]{caption}
-\RequirePackage[Lenny]{fncychap}
+%% \RequirePackage[Lenny]{fncychap}
 \RequirePackage{xcolor}
 \RequirePackage[linktocpage,colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=red]{hyperref}
 %% \hypersetup{linktocpage}
