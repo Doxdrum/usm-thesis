@@ -46,9 +46,9 @@ For defining the *title page* one uses a couple of commands:
 
 - **In the preamble**: a command called `\definethesis` which accepts two arguments, the *title* and the *author*.
 
-    \definethesis{The title  %Here the title
-    }{The Author   %Here the Author
-    }
+        \definethesis{The title  %Here the title
+           }{The Author   %Here the Author
+           }
 
 - **In the body**: a command called `\thesistitlepage` which takes three arguments:
     - Name of the advisor,
@@ -56,9 +56,9 @@ For defining the *title page* one uses a couple of commands:
     - the date
 
             \thesistitlepage{Advisor: Iv\'an Schmidt % Name of the advisor
-            }{Trabajo de tesis presentado en cumplimiento parcial de los requisitos para el grado de Magister en Ciencias, menci\'on f\'isica, de la Universidad T\'ecnica Federico Santa Mar\'ia. %The thesis statement
-            }{August, 2014 %The date
-            }
+               }{Trabajo de tesis presentado en cumplimiento parcial de los requisitos para el grado de Magister en Ciencias, menci\'on f\'isica, de la Universidad T\'ecnica Federico Santa Mar\'ia. %The thesis statement
+               }{August, 2014 %The date
+               }
 
 ### Front Matter ###
 
