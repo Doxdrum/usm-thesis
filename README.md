@@ -60,5 +60,7 @@ For defining the *title page* one uses a couple of commands:
                }{August, 2014 %The date
                }
 
+
 ### Front Matter ###
 
+After generating the title page, as customary in the `book` class, the front-matter can be declared using the command `\frontmatter`.

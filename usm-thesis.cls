@@ -64,7 +64,7 @@
   \@oldtitlepage%
 %%%%%%%%%
   \begin{center}
-    \includegraphics[scale=.6]{Pict/UTFSM-logo.pdf}\\
+    \includegraphics[scale=.6]{Pictures/UTFSM-logo.pdf}\\
     {\large Universidad T\'ecnica Federico Santa Mar\'ia.}\\
     {\large Departamento de F\'isica.}
   \end{center}
