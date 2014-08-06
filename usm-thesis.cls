@@ -30,6 +30,7 @@
 \RequirePackage{tikz}
 \RequirePackage{pgfplots}
 \RequirePackage{pgfplotstable}
+\RequirePackage[framemethod=tikz]{mdframed}
 \RequirePackage{siunitx}
 %% \RequirePackage{bclogo}
 %% \RequirePackage[framemethod=tikz]{mdframed}
@@ -153,22 +154,22 @@
   \newpage
   \vspace*{\stretch{5}}
   \begin{flushright}
-    #1
+    {\Large #1}
   \end{flushright}
   \vspace*{\stretch{1}}
 }
 
 \definecolor{cccolor}{rgb}{.67,.7,.67}
-\DeclareRobustCommand{\CC}{
+\DeclareRobustCommand{\CC}[1][by-sa]{
   \newpage
   \vspace*{\stretch{5}}
   
   \begin{mdframed}[outerlinecolor=black,outerlinewidth=2pt,linecolor=cccolor,middlelinewidth=3pt,roundcorner=10pt]
     
     \begin{center}
-      This work is licensed under a \href{http://creativecommons.org/licenses/by-sa/3.0/}{Creative Commons Attribution-ShareAlike 3.0 Unported License}.
+      This work is licensed under a \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons Attribution-ShareAlike 4.0 International License}.
       
-      \includegraphics[scale=2]{Pict/by-nc-sa.pdf}
+      \includegraphics[scale=2]{Pictures/#1.pdf}
     \end{center}
   \end{mdframed}
   \vspace*{\stretch{1}}

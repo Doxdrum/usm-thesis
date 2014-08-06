@@ -35,6 +35,7 @@ Additionally, some useful packages are load:
 - `tikz`: useful to draw using code
     - `pgfplots`: allows the creation of scientific plots using `tikz`
     - `pgfplotstable`:allows the creation of tables (with ease) from data files, using `tiks` and `pgfplots`
+    - `mdframed`: uses `tikz`for drawing coloured boxes
 - `array`: allows the use of extra column behaviours in tables
 - `siunitx`: defines commands for   different physical units, numerical quantities and tables.
 - `subfigure`
@@ -64,3 +65,11 @@ For defining the *title page* one uses a couple of commands:
 ### Front Matter ###
 
 After generating the title page, as customary in the `book` class, the front-matter can be declared using the command `\frontmatter`.
+
+- For the front matter, page style *special*. That is achieved with the command `\pagestyle{special}`
+
+- In order to generate the *committee page* (where the members of the committee sign the thesis), the class provides the command `\committee` with accepts five arguments, four names of the committee members and the date on this page (not necessarily the same as in the *title page*.
+
+- There is a `\Dedication` command which takes one argument. It places the dedicatory is placed in the lower part of the page and flushed right.
+
+- The class also provides a command to create a *creative commons* box. The command is `\CC`. By default the box creates a *Creative Commons Attribution-ShareAlike 4.0 Unported License* (`by-sa`) logo.
