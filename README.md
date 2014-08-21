@@ -72,4 +72,4 @@ After generating the title page, as customary in the `book` class, the front-mat
 
 - There is a `\Dedication` command which takes one argument. It places the dedicatory is placed in the lower part of the page and flushed right.
 
-- The class also provides a command to create a *creative commons* box. The command is `\CC`. By default the box creates a *Creative Commons Attribution-ShareAlike 4.0 Unported License* (`by-sa`) logo.
+- The class also provides a command to create a *creative commons* box. The command is `\CC`. By default the box creates a *Creative Commons Attribution-ShareAlike 4.0 Unported License* (`by-sa`) logo. You can use also the license to *Creative Commons Attribution-noncommercial-ShareAlike 4.0 Unported License* (`by-nc-sa`) using the optional argument `\CC[by-nc-sa]` [not completely implemented, the logo changes but the license don't].
