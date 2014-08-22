@@ -34,7 +34,8 @@
 \RequirePackage{siunitx}
 %% \RequirePackage{bclogo}
 %% \RequirePackage[framemethod=tikz]{mdframed}
-
+\RequirePackage[english]{babel}
+\RequirePackage{xparse}
 
 
 \newcommand\HRule{\noindent\rule{\linewidth}{1.5pt}}
@@ -102,9 +103,31 @@
 
 
 %--------- Committee page
+%----- Using babel
+\newcommand*\iflanguagepackage[1]{%
+  \@ifpackageloaded{babel}
+    {#1}
+    {%
+      \@ifpackageloaded{polyglossia}
+        {#1}
+        {}%
+    }%
+}
+
+\newcommand*\TTitle{TTitle}
+\newcommand*\TAuthor{TAuthor}
+\newcommand*\TCommittee{TCommittee}
+\iflanguagepackage{%
+  \addto\captionsenglish{\def\TTitle{THESIS TITLE}}%
+  \addto\captionsspanish{\def\TTitle{T\'ITULO DE LA TESIS}}%
+  \addto\captionsenglish{\def\TAuthor{AUTHOR}}%
+  \addto\captionsspanish{\def\TAuthor{AUTOR}}%
+  \addto\captionsenglish{\def\TCommittee{\textbf{EXAMINATOR COMMITTEE}}}%
+  \addto\captionsspanish{\def\TCommittee{\textbf{COMISI\'ON EXAMINADORA}}}%
+}
 
 \DeclareRobustCommand{\committee}[5]{
-\noindent T\'ITULO DE LA TESIS:
+\noindent \TTitle:
 
 \begin{center}
   {\bf \sc \LARGE \thetitle}
@@ -112,7 +135,7 @@
 
 \vspace{1.5cm}
 
-\noindent AUTOR:
+\noindent \TAuthor:
 
 \begin{center}
   {\bf\sc\Large \theauthor}
@@ -126,7 +149,7 @@
 %Trabajo de tesis presentado en cumplimiento parcial de los requisitos para el grado de Magister en Ciencias, mensi\'on f\'isica, de la Universidad T\'ecnica Federico Santa Mar\'ia.
 \vspace{\stretch{2}}
 
-{\bf COMISI\'ON EXAMINADORA:}
+{\TCommittee:}
 \vspace{.8cm}
 \begin{center}
   \begin{tabular}{lp{7.5cm}}
@@ -160,6 +183,35 @@
 }
 
 \definecolor{cccolor}{rgb}{.67,.7,.67}
+%% \DeclareDocumentCommand{\CC}{ o } {
+%%   \IFNoValueTF{#1} {
+%%   \newpage
+%%   \vspace*{\stretch{5}}
+  
+%%   \begin{mdframed}[outerlinecolor=black,outerlinewidth=2pt,linecolor=cccolor,middlelinewidth=3pt,roundcorner=10pt]
+    
+%%     \begin{center}
+%%       This work is licensed under a \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons Attribution--ShareAlike 4.0 International License}.
+    
+%%     \includegraphics[scale=2]{Pictures/by-sa.pdf}
+%%     \end{center}
+%%   \end{mdframed}
+%%   \vspace*{\stretch{1}}
+%%   }{
+%%   \newpage
+%%   \vspace*{\stretch{5}}
+  
+%%   \begin{mdframed}[outerlinecolor=black,outerlinewidth=2pt,linecolor=cccolor,middlelinewidth=3pt,roundcorner=10pt]
+    
+%%     \begin{center}
+%%       This work is licensed under a \href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{Creative Commons Attribution--Non-Commercial--ShareAlike 4.0 International License}.
+    
+%%     \includegraphics[scale=2]{Pictures/by-nc-sa.pdf}
+%%     \end{center}
+%%   \end{mdframed}
+%%   \vspace*{\stretch{1}}
+%%   }
+%% }
 \DeclareRobustCommand{\CC}[1][by-sa]{
   \newpage
   \vspace*{\stretch{5}}
@@ -167,9 +219,10 @@
   \begin{mdframed}[outerlinecolor=black,outerlinewidth=2pt,linecolor=cccolor,middlelinewidth=3pt,roundcorner=10pt]
     
     \begin{center}
-      This work is licensed under a \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons Attribution-ShareAlike 4.0 International License}.
-      
+      This work is licensed under a \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons Attribution--ShareAlike 4.0 International License}.
+    
       \includegraphics[scale=2]{Pictures/#1.pdf}
+      %%      \CCcontent[##1]
     \end{center}
   \end{mdframed}
   \vspace*{\stretch{1}}
