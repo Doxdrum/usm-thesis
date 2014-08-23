@@ -2,5 +2,4 @@
 
 - track001 :: Add the ~DeclareOptionPackage~ working with ~book~
 - track002 :: ~PassOptionToPackage~ for the ~babel~ package: Allow ~spanish~ and ~english~ options.
-
-
+- track003 :: Use ~xparse~ to redefine the command ~\CC~ to change the license according to the arguments
