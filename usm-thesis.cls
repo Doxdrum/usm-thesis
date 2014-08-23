@@ -1,9 +1,14 @@
+%% usm-thesis.cls
+%% Class for writing thesis for the
+%% Universidad Tecnica Federico Santa Maria
+%% 2014/08/24 Oscar Castillo-Felisola
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Class Structure:
+%----------------------------- Identification 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{usm-thesis}[2014/08/01 LaTeX package for USM thesis]
 
 
-%--------- Based on `book' class
-\LoadClass[letterpaper]{book}
 
 %--------- Include the following packages
 \RequirePackage{amsmath} 
@@ -22,7 +27,7 @@
 \RequirePackage{xcolor}
 \RequirePackage[linktocpage,colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=red]{hyperref}
 %% \hypersetup{linktocpage}
-\RequirePackage{subfigure}
+%% \RequirePackage{subfigure}
 \RequirePackage{centernot}
 %% \RequirePackage{wrapfig}
 %% \RequirePackage{fancybox}
@@ -34,8 +39,23 @@
 \RequirePackage{siunitx}
 %% \RequirePackage{bclogo}
 %% \RequirePackage[framemethod=tikz]{mdframed}
-\RequirePackage[english]{babel}
+\RequirePackage{babel}
 \RequirePackage{xparse}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Class Structure:
+%----------------------------- Declaration of Options
+%\DeclareOption*{\PassOptionsToClass{\CurrentOptions}{book}}
+\DeclareOption*{\PassOptionToPackage{english,spanish}{babel}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Class Structure:
+%----------------------------- Execution of Options
+\ProcessOptions\relax
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Class Structure:
+%----------------------------- Package Loading
+%--------- Based on `book' class
+\LoadClass[letterpaper]{book}
 
 
 \newcommand\HRule{\noindent\rule{\linewidth}{1.5pt}}
@@ -114,15 +134,15 @@
     }%
 }
 
-\newcommand*\TTitle{TTitle}
-\newcommand*\TAuthor{TAuthor}
-\newcommand*\TCommittee{TCommittee}
+\newcommand*\TTitle{THESIS TITLE}
+\newcommand*\TAuthor{AUTHOR}
+\newcommand*\TCommittee{\textbf{EXAMINATOR COMMITTEE}}
 \iflanguagepackage{%
-  \addto\captionsenglish{\def\TTitle{THESIS TITLE}}%
+  %\addto\captionsenglish{\def\TTitle{THESIS TITLE}}%
   \addto\captionsspanish{\def\TTitle{T\'ITULO DE LA TESIS}}%
-  \addto\captionsenglish{\def\TAuthor{AUTHOR}}%
+  %\addto\captionsenglish{\def\TAuthor{AUTHOR}}%
   \addto\captionsspanish{\def\TAuthor{AUTOR}}%
-  \addto\captionsenglish{\def\TCommittee{\textbf{EXAMINATOR COMMITTEE}}}%
+  %\addto\captionsenglish{\def\TCommittee{\textbf{EXAMINATOR COMMITTEE}}}%
   \addto\captionsspanish{\def\TCommittee{\textbf{COMISI\'ON EXAMINADORA}}}%
 }
 
