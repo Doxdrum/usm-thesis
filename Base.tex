@@ -47,9 +47,28 @@
 %---------- Main-matter page style
 \pagestyle{main}
 
+\input{Documents/ch1}
+\input{Documents/ch2}
+\input{Documents/ch3}
+
+\appendix
 
 
+\input{Documents/ap1}
+\input{Documents/ap2}
 
+\nocite{*}
+
+%------------------------------
+% Back matter
+%------------------------------
+\backmatter
+
+%---------- Main-matter page style
+\pagestyle{special}
+
+\printbibliography
+\addcontentsline{toc}{chapter}{\bibname}
 
 
 

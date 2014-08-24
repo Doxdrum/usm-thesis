@@ -36,7 +36,21 @@
 %% \RequirePackage[framemethod=tikz]{mdframed}
 \RequirePackage[english]{babel}
 \RequirePackage{xparse}
+\RequirePackage{lipsum}
 
+\RequirePackage[%
+  backend      = bibtex,
+  style        = phys,
+  articletitle = false,
+  biblabel     = brackets,
+  chaptertitle = false,
+  sorting      = nyt,
+]{biblatex}
+\addbibresource{References.bib}
+\defbibheading{bibliography}[\refname]{%
+  \chapter*{#1}
+  \markboth{}{}
+}
 
 \newcommand\HRule{\noindent\rule{\linewidth}{1.5pt}}
 
