@@ -49,7 +49,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Class Structure:
 %----------------------------- Execution of Options
-\ProcessOptions\relax
+\ExecuteOptions{letterpaper,10pt,twoside,onecolumn,final,openright}
+\ProcessOptions%\relax
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Class Structure:
