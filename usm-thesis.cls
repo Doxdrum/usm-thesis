@@ -46,11 +46,7 @@
   chaptertitle = false,
   sorting      = nyt,
 ]{biblatex}
-\addbibresource{References.bib}
-\defbibheading{bibliography}[\refname]{%
-  \chapter*{#1}
-  \markboth{}{}
-}
+
 
 \newcommand\HRule{\noindent\rule{\linewidth}{1.5pt}}
 
