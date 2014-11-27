@@ -1,5 +1,6 @@
 \documentclass{usm-thesis}
 
+\usepackage{lipsum}
 
 \definethesis{The title  %Here the title
 }{The Author   %Here the Author
@@ -9,14 +10,19 @@
 %       BODY
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+\hypersetup{pageanchor=false}
+\pagestyle{empty}
 
 %------------------------------
 % Generate the title page
 %------------------------------
+\pdfbookmark{Titlepage}{portada}
 \thesistitlepage{Advisor: Iv\'an Schmidt % Name of the advisor
 }{Trabajo de tesis presentado en cumplimiento parcial de los requisitos para el grado de Magister en Ciencias, menci\'on f\'isica, de la Universidad T\'ecnica Federico Santa Mar\'ia. %The thesis statement
-}{August, 2014 %The date
+}{December, 2014 %The date
 }
+
+
 
 %------------------------------
 % Front matter
@@ -31,6 +37,9 @@
 
 \Dedication{to my family}
 
+
+\clearpage
+\pdfbookmark{Copyright}{copyright}
 \CC[by-sa]
 
 %---------- Table of Contents
@@ -46,10 +55,28 @@
 %---------- Main-matter page style
 \pagestyle{main}
 
+\input{Documents/ch1}
+\input{Documents/ch2}
+\input{Documents/ch3}
+
+\appendix
+
+\input{Documents/ap1}
+\input{Documents/ap2}
 
 
+%------------------
+%--------- Final part
+%------------------
+
+\backmatter
 
 
+\nocite{IAS1,IAS2,Gilmore,Curtis,Bertlmann,Arnold,Freed, Nakahara,SUGRA-book,WeinbergQFT1,WeinbergQFT2,WeinbergQFT3,Castillo-Felisola:2013jva,Sternberg,Ivey,IASPark1,joyce2000,Joyce2007,CY-friends}
+
+\bibliographystyle{utphys}
+\bibliography{References}
+\addcontentsline{toc}{chapter}{\bibname}
 
 
 \end{document}
