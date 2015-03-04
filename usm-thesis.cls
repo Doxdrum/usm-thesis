@@ -2,10 +2,24 @@
 \ProvidesClass{usm-thesis}[2014/08/01 LaTeX package for USM thesis]
 
 
+%% \providecommand*{\titcomment}{THESIS TITLE}
+%% \AtBeginDocument{
+%%   \@ifpackagewith{babel}{spanish}{%
+%%     \addto\captionsspanish{\renewcommand*\titcomment{T\'ITULO DE LA TESIS}}%
+%%   }{}
+%%   \@ifpackagewith{babel}{english}{%
+%%     \addto\captionsspanish{\renewcommand*\titcomment{THESIS TITLE}}%
+%%   }{}
+%% }
+
+%% \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
+%% \ProcessOptions\relax
+
 %--------- Based on `book' class
 \LoadClass[letterpaper]{book}
 
 %--------- Include the following packages
+\RequirePackage{xparse}
 \RequirePackage{amsmath} 
 \RequirePackage{amstext}
 \RequirePackage{amsfonts}
@@ -102,56 +116,55 @@
 
 
 %--------- Committee page
+\ExplSyntaxOn
+\DeclareRobustCommand{\tit}{T\'ITULO\thinspace DE\thinspace LA\thinspace TESIS}
+\NewDocumentCommand{\committee}{ >{ \SplitList {,} } m } {
+  \pdfbookmark{Committee}{comite}
+  \noindent \tit :%%\mbox{T\'ITULO DE LA TESIS:}
 
-\DeclareRobustCommand{\committee}[5]{
-\noindent T\'ITULO DE LA TESIS:
+  \begin{center}
+    {\bf \sc \LARGE \thetitle}
+  \end{center}
 
-\begin{center}
-  {\bf \sc \LARGE \thetitle}
-\end{center}
+  \vspace{1.5cm}
 
-\vspace{1.5cm}
+  \noindent AUTOR:
 
-\noindent AUTOR:
+  \begin{center}
+    {\bf\sc\Large \theauthor}
+  \end{center}
 
-\begin{center}
-  {\bf\sc\Large \theauthor}
-\end{center}
+  \vspace{\stretch{1}}
 
-\vspace{\stretch{1}}
-
-\begin{center}
-  {\Large \comentario}
-\end{center}
-%Trabajo de tesis presentado en cumplimiento parcial de los requisitos para el grado de Magister en Ciencias, mensi\'on f\'isica, de la Universidad T\'ecnica Federico Santa Mar\'ia.
-\vspace{\stretch{2}}
-
-{\bf COMISI\'ON EXAMINADORA:}
-\vspace{.8cm}
-\begin{center}
-  \begin{tabular}{lp{7.5cm}}
-    #1 & \dotfill \\
-
-    & \vspace{0.8cm}\\
-    #2 & \dotfill \\
- 
-    & \vspace{0.8cm}\\
-    #3 &\dotfill  \\
- 
-    & \vspace{0.8cm}\\
-    #4 & \dotfill 
-  \end{tabular}
-\end{center} 
-\vspace{\stretch{1}}
-
-
-\begin{flushright}
-  #5
-\end{flushright}
+  \begin{center}
+    {\Large \comentario}
+  \end{center}
+  %Trabajo de tesis presentado en cumplimiento parcial de los requisitos para el grado de Magister en Ciencias, mensi\'on f\'isica, de la Universidad T\'ecnica Federico Santa Mar\'ia.
+  \vspace{\stretch{2}}
+         {\bf COMISI\'ON\thinspace EXAMINADORA:}
+         \vspace{.8cm}
+         \begin{center}
+           \begin{tabular}{lcp{7.5cm}}
+             \ProcessList{ #1 }{ \__comm_process_argument:n }
+           \end{tabular}
+         \end{center}
+         \vspace{\stretch{1}}
+         \begin{flushright}
+           \today
+         \end{flushright}
 }
+\cs_new_protected:Nn \__comm_process_argument:n {
+  \__comm_name:nn #1 
+}
+\cs_new_protected:Nn \__comm_name:nn {
+  #1 &(#2) & \dotfill \\
+  & \vspace{0.8cm} & \\
+}
+\ExplSyntaxOff
 
 \DeclareRobustCommand{\Dedication}[1]{
   \newpage
+  \pdfbookmark{Dedication}{dedicatoria}
   \vspace*{\stretch{5}}
   \begin{flushright}
     {\Large #1}
@@ -162,10 +175,10 @@
 \definecolor{cccolor}{rgb}{.67,.7,.67}
 \DeclareRobustCommand{\CC}[1][by-sa]{
   \newpage
+  \pdfbookmark{Copyright}{copyright}
   \vspace*{\stretch{5}}
   
-  \begin{mdframed}[outerlinecolor=black,outerlinewidth=2pt,linecolor=cccolor,middlelinewidth=3pt,roundcorner=10pt]
-    
+  \begin{mdframed}[outerlinecolor=black,outerlinewidth=2pt,linecolor=cccolor,middlelinewidth=3pt,roundcorner=10pt]    
     \begin{center}
       This work is licensed under a \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons Attribution-ShareAlike 4.0 International License}.
       
@@ -204,39 +217,7 @@
   \kern10pt %%% <-- adjust here
   \hbox{\tikz \shade[left color=blue!20,right color=blue, shading angle=45] (0,0) rectangle (\textwidth,5pt);}%
 }
-%\renewcommand{\thechapter}{\Roman{chapter}}
-%\titleformat{\chapter}[display]
-%   {\normalfont\Large\filcenter\sffamily}
-%   {\titlerule[1pt]
-%    \vspace{1pt}
-%    \titlerule
-%    \vspace{1pt}
-%    \LARGE\MakeUppercase{\chaptertitlename} \thechapter}
-%   {1pc}
-%   {\titlerule
-%    \vspace{1pc}
-%    \Huge}
-%\titleformat{\section}
-%   {\LARGE\sffamily\slshape}
-%   {\thesection}{1em}{}
-%\titlespacing{\section}
-%   {6pc}{3.5ex plus .1ex minus .2ex}{1.5ex minus .1ex}
-%\widenhead{6pc}{0pc}
-%\renewpagestyle{plain}{}
-%\newpagestyle{special}[\small\sffamily]{
-%   \headrule
-%   \sethead[\usepage][\textsl{\thechaptertitle}][]
-%                  {}{\textsl{\thechaptertitle}}{\usepage}}
-%\newpagestyle{main}[\small\sffamily]{
-%   \headrule
-%   \sethead[\usepage][\textsl{\thechapter.}][]
-%                  {}{\textsl{\thechapter. \thesection}}{\usepage}}
-
-%---------------- Geometry (margins... et cetera.)
-%\usepackage[letterpaper,includeheadfoot]{geometry}
-%\geometry{hmargin={3cm,0.8in},height=6in}
-%\geometry{height=8.5in}
 \usepackage[paper=letterpaper,textwidth=169mm,textheight=229mm,hmarginratio=1:1,vmarginratio=1:1]{geometry}
 
 \newcommand{\thesistypeout}{\typeout{hepthesis: thesis- prefix commands are deprecated}}
-\DeclareRobustCommand{\thesistitlepage}[3]{\thesistypeout\titlepage{#1}{#2}{#3}}
+\DeclareRobustCommand{\thesistitlepage}[3]{\pdfbookmark{Titlepage}{portada}\thesistypeout\titlepage{#1}{#2}{#3}}
