@@ -1,7 +1,7 @@
 usm-thesis
 ==========
 
-This is an attempt to create a LaTeX template for Thesis presented at the Universidad Tecnica Federico Santa Maria (or USM or UTFSM), from Chile (and Ecuator)
+This is an attempt to create a LaTeX template for Thesis presented at the Universidad Tecnica Federico Santa Maria (or USM or UTFSM).
 
 ## Initial Steps ##
 
@@ -11,6 +11,7 @@ This class is based on the standard `book` class of LaTeX, so it accept structur
 
 This class was born in the physics department, so it loads many mathematical packages, such as:
 
+- `xparse`
 - `amsmath`
 - `amstext`
 - `amsfonts`
@@ -68,7 +69,14 @@ After generating the title page, as customary in the `book` class, the front-mat
 
 - For the front matter, page style *special*. That is achieved with the command `\pagestyle{special}`
 
-- In order to generate the *committee page* (where the members of the committee sign the thesis), the class provides the command `\committee` with accepts five arguments, four names of the committee members and the date on this page (not necessarily the same as in the *title page*.
+- In order to generate the *committee page* (where the members of the committee sign the thesis), the class provides the command `\committee` with accepts arguments in the form of a comma separated list, containing the *name* and *affiliation* of each member of the committee.
+
+		\committee{
+          {Iv\'an Schmidt}{USM},
+          {Jorge Zanelli}{CECS},
+		  {Claudio Dib}{USM},
+		  {Stanley Kubrick}{Bates}
+		}
 
 - There is a `\Dedication` command which takes one argument. It places the dedicatory is placed in the lower part of the page and flushed right.
 
