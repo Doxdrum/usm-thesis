@@ -81,3 +81,11 @@ After generating the title page, as customary in the `book` class, the front-mat
 - There is a `\Dedication` command which takes one argument. It places the dedicatory is placed in the lower part of the page and flushed right.
 
 - The class also provides a command to create a *creative commons* box. The command is `\CC`. By default the box creates a *Creative Commons Attribution-ShareAlike 4.0 Unported License* (`by-sa`) logo.
+
+### Main Matter ###
+
+In this part of the document one should call the `\chapter`s composing the thesis.
+
+- The first command after the `\mainmatter` is `\pagestyle{main}`, which changes the numeration of the pages and the format for the new chapters.
+- For the sake of clarity, the plain LaTeX files should be saved in the folder called `Documents`, and to insert their content into the thesis one uses the command `\input{Documents/xxxxxxxx}`, where `xxxxxxxx` is the name of the file. **Note:** since only `tex` files are supposed to be on the folder, no extension is needed.
+
