@@ -108,3 +108,13 @@ Since the best way of generating the bibliography is to use `bibtex`, in the `Ba
 	\nocite{IAS1,IAS2,Gilmore,...,CY-friends}
 
 Notice that this is for the sake of completeness in the example... Please, remove this line when you start writing your manuscript!!!
+
+The `bibtex` style used by the class is `utphys`, which is compatible with **arXiv** citations and **DOI** hyper-reference.
+
+	\bibliographystyle{utphys}
+	\bibliography{References}
+	\addcontentsline{toc}{chapter}{\bibname}
+
+- Since `utphys.bst` is not included in the standard LaTeX distribution, it has been included in the bundle of files.
+- A (huge) exaple of bibfile called `References.bib` has been included as well. It is highly recommended that you start your own bibfile.
+- If you start your new bibfile, and you call it `YYYYYYYY.bib`, then you should change the command `\bibliography{References}` to `\bibliography{YYYYYYYY}`.

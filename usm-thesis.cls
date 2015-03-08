@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{usm-thesis}[2014/08/01 LaTeX package for USM thesis]
+\ProvidesClass{usm-thesis}[2015/03/08 LaTeX package for USM thesis]
 
 
 %% \providecommand*{\titcomment}{THESIS TITLE}
@@ -117,7 +117,9 @@
 
 %--------- Committee page
 \ExplSyntaxOn
-\DeclareRobustCommand{\tit}{T\'ITULO\thinspace DE\thinspace LA\thinspace TESIS}
+\DeclareRobustCommand{\tit}{T\'ITULO~DE~LA~TESIS}
+\DeclareRobustCommand{\aut}{AUTOR}
+\DeclareRobustCommand{\comi}{COMISI\'ON~EXAMINADORA}
 \NewDocumentCommand{\committee}{ >{ \SplitList {,} } m } {
   \pdfbookmark{Committee}{comite}
   \noindent \tit :%%\mbox{T\'ITULO DE LA TESIS:}
@@ -128,7 +130,7 @@
 
   \vspace{1.5cm}
 
-  \noindent AUTOR:
+  \noindent \aut :
 
   \begin{center}
     {\bf\sc\Large \theauthor}
@@ -139,9 +141,9 @@
   \begin{center}
     {\Large \comentario}
   \end{center}
-  %Trabajo de tesis presentado en cumplimiento parcial de los requisitos para el grado de Magister en Ciencias, mensi\'on f\'isica, de la Universidad T\'ecnica Federico Santa Mar\'ia.
+
   \vspace{\stretch{2}}
-         {\bf COMISI\'ON\thinspace EXAMINADORA:}
+         {\bf \comi :}
          \vspace{.8cm}
          \begin{center}
            \begin{tabular}{lcp{7.5cm}}
