@@ -3,14 +3,6 @@
 
 
 %% \providecommand*{\titcomment}{THESIS TITLE}
-%% \AtBeginDocument{
-%%   \@ifpackagewith{babel}{spanish}{%
-%%     \addto\captionsspanish{\renewcommand*\titcomment{T\'ITULO DE LA TESIS}}%
-%%   }{}
-%%   \@ifpackagewith{babel}{english}{%
-%%     \addto\captionsspanish{\renewcommand*\titcomment{THESIS TITLE}}%
-%%   }{}
-%% }
 
 %% \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 %% \ProcessOptions\relax
@@ -48,6 +40,7 @@
 \RequirePackage{siunitx}
 %% \RequirePackage{bclogo}
 %% \RequirePackage[framemethod=tikz]{mdframed}
+\RequirePackage[paper=letterpaper,textwidth=169mm,textheight=229mm,hmarginratio=1:1,vmarginratio=1:1]{geometry}
 
 
 
@@ -116,13 +109,26 @@
 
 
 %--------- Committee page
+\DeclareRobustCommand{\titcomment}{THESIS~TITLE}
+\DeclareRobustCommand{\autcomment}{AUTHOR}
+\DeclareRobustCommand{\comcomment}{EXAMINATION~COMMITTEE}
+\AtBeginDocument{
+  \@ifpackagewith{babel}{spanish}{%
+    \addto\captionsspanish{\renewcommand*\titcomment{T\'ITULO~DE~LA~TESIS}%
+      \renewcommand*\autcomment{AUTOR}%
+      \renewcommand*\comcomment{COMISI\'ON~EXAMINADORA}%
+    }
+  }{}
+  %% \@ifpackagewith{babel}{english}{%
+  %%   \addto\captionsenglish{\renewcommand*\titcomment{THESIS~TITLE}}%
+  %%   \addto\captionsenglish{\renewcommand*\autcomment{AUTHOR}}%
+  %%   \addto\captionsenglish{\renewcommand*\comcomment{EXAMINATION~COMMITTEE}}%
+  %% }{}
+}
 \ExplSyntaxOn
-\DeclareRobustCommand{\tit}{T\'ITULO~DE~LA~TESIS}
-\DeclareRobustCommand{\aut}{AUTOR}
-\DeclareRobustCommand{\comi}{COMISI\'ON~EXAMINADORA}
 \NewDocumentCommand{\committee}{ >{ \SplitList {,} } m } {
   \pdfbookmark{Committee}{comite}
-  \noindent \tit :%%\mbox{T\'ITULO DE LA TESIS:}
+  \noindent \titcomment :%%\mbox{T\'ITULO DE LA TESIS:}
 
   \begin{center}
     {\bf \sc \LARGE \thetitle}
@@ -130,7 +136,7 @@
 
   \vspace{1.5cm}
 
-  \noindent \aut :
+  \noindent \autcomment :
 
   \begin{center}
     {\bf\sc\Large \theauthor}
@@ -143,7 +149,7 @@
   \end{center}
 
   \vspace{\stretch{2}}
-         {\bf \comi :}
+         {\bf \comcomment :}
          \vspace{.8cm}
          \begin{center}
            \begin{tabular}{lcp{7.5cm}}
@@ -219,7 +225,9 @@
   \kern10pt %%% <-- adjust here
   \hbox{\tikz \shade[left color=blue!20,right color=blue, shading angle=45] (0,0) rectangle (\textwidth,5pt);}%
 }
-\usepackage[paper=letterpaper,textwidth=169mm,textheight=229mm,hmarginratio=1:1,vmarginratio=1:1]{geometry}
 
 \newcommand{\thesistypeout}{\typeout{hepthesis: thesis- prefix commands are deprecated}}
 \DeclareRobustCommand{\thesistitlepage}[3]{\pdfbookmark{Titlepage}{portada}\thesistypeout\titlepage{#1}{#2}{#3}}
+
+
+
