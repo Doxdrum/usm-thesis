@@ -12,6 +12,7 @@
 
 %--------- Include the following packages
 \RequirePackage{xparse}
+\RequirePackage{ifthen}
 \RequirePackage{amsmath} 
 \RequirePackage{amstext}
 \RequirePackage{amsfonts}
@@ -179,6 +180,13 @@
   \vspace*{\stretch{1}}
 }
 
+\DeclareRobustCommand{\CCintro}{This work is licensed under a}
+\newcommand{\CClink}[1]{http://creativecommons.org/licenses/#1/4.0/}
+\DeclareRobustCommand{\CCcomment}[1]{%
+  \ifthenelse{\equal{#1}{by-sa}}{Creative Commons Attribution-ShareAlike 4.0 International License}{}
+  \ifthenelse{\equal{#1}{by-nc-sa}}{Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License}{}
+}
+%% \DeclareRobustCommand{\CCcomment}{Creative Commons Attribution-ShareAlike 4.0 International License}
 \definecolor{cccolor}{rgb}{.67,.7,.67}
 \DeclareRobustCommand{\CC}[1][by-sa]{
   \newpage
@@ -187,7 +195,8 @@
   
   \begin{mdframed}[outerlinecolor=black,outerlinewidth=2pt,linecolor=cccolor,middlelinewidth=3pt,roundcorner=10pt]    
     \begin{center}
-      This work is licensed under a \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons Attribution-ShareAlike 4.0 International License}.
+      \CCintro~\href{\CClink{#1}}{\CCcomment{#1}}
+      %% This work is licensed under a \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons Attribution-ShareAlike 4.0 International License}.
       
       \includegraphics[scale=2]{Pictures/#1.pdf}
     \end{center}
