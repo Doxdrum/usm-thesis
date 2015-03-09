@@ -112,22 +112,21 @@
 \DeclareRobustCommand{\titcomment}{THESIS~TITLE}
 \DeclareRobustCommand{\autcomment}{AUTHOR}
 \DeclareRobustCommand{\comcomment}{EXAMINATION~COMMITTEE}
+\DeclareRobustCommand{\committeename}{Committee}
+\DeclareRobustCommand{\titlename}{Front~page}
 \AtBeginDocument{
   \@ifpackagewith{babel}{spanish}{%
     \addto\captionsspanish{\renewcommand*\titcomment{T\'ITULO~DE~LA~TESIS}%
       \renewcommand*\autcomment{AUTOR}%
       \renewcommand*\comcomment{COMISI\'ON~EXAMINADORA}%
+      \renewcommand*\titlename{Portada}%
+      \renewcommand*\committeename{Comit\'e~evaluador}
     }
   }{}
-  %% \@ifpackagewith{babel}{english}{%
-  %%   \addto\captionsenglish{\renewcommand*\titcomment{THESIS~TITLE}}%
-  %%   \addto\captionsenglish{\renewcommand*\autcomment{AUTHOR}}%
-  %%   \addto\captionsenglish{\renewcommand*\comcomment{EXAMINATION~COMMITTEE}}%
-  %% }{}
 }
 \ExplSyntaxOn
 \NewDocumentCommand{\committee}{ >{ \SplitList {,} } m } {
-  \pdfbookmark{Committee}{comite}
+  \pdfbookmark{\committeename}{comite}
   \noindent \titcomment :%%\mbox{T\'ITULO DE LA TESIS:}
 
   \begin{center}
@@ -172,7 +171,7 @@
 
 \DeclareRobustCommand{\Dedication}[1]{
   \newpage
-  \pdfbookmark{Dedication}{dedicatoria}
+  %% \pdfbookmark{Dedication}{dedicatoria}
   \vspace*{\stretch{5}}
   \begin{flushright}
     {\Large #1}
@@ -183,7 +182,7 @@
 \definecolor{cccolor}{rgb}{.67,.7,.67}
 \DeclareRobustCommand{\CC}[1][by-sa]{
   \newpage
-  \pdfbookmark{Copyright}{copyright}
+  %% \pdfbookmark{Copyright}{copyright}
   \vspace*{\stretch{5}}
   
   \begin{mdframed}[outerlinecolor=black,outerlinewidth=2pt,linecolor=cccolor,middlelinewidth=3pt,roundcorner=10pt]    
@@ -227,7 +226,7 @@
 }
 
 \newcommand{\thesistypeout}{\typeout{hepthesis: thesis- prefix commands are deprecated}}
-\DeclareRobustCommand{\thesistitlepage}[3]{\pdfbookmark{Titlepage}{portada}\thesistypeout\titlepage{#1}{#2}{#3}}
+\DeclareRobustCommand{\thesistitlepage}[3]{\pdfbookmark{\titlename}{portada}\thesistypeout\titlepage{#1}{#2}{#3}}
 
 
 
