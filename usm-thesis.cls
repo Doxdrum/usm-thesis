@@ -1,5 +1,43 @@
+%% usm-thesis.cls
+%% Class for writing thesis for the
+%% Universidad Tecnica Federico Santa Maria
+%% 2014/08/24 Oscar Castillo-Felisola
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%% Class Structure:
+%% ----------------------------- Identification 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{usm-thesis}[2015/03/08 LaTeX package for USM thesis]
+\ProvidesClass{usm-thesis}[2015/03/08 v1.0b LaTeX package for USM thesis]
+%--------- Based on `book' class
+%% \LoadClass{book}
+\def\@ptsize{}
+\newif\if@openright
+\newif\if@mainmatter \@mainmattertrue
+\DeclareOption{letterpaper}{
+  \setlength\paperheight{11in}
+  \setlength\paperwidth{8.5in}}
+\DeclareOption{10pt}{\renewcommand\@ptsize{0}}
+\DeclareOption{11pt}{\renewcommand\@ptsize{1}}
+\DeclareOption{12pt}{\renewcommand\@ptsize{2}}
+\DeclareOption{oneside}{\@twosidefalse \@mparswitchfalse}
+\DeclareOption{twoside}{\@twosidetrue  \@mparswitchtrue}
+\DeclareOption{draft}{\setlength\overfullrule{5pt}}
+\DeclareOption{final}{\setlength\overfullrule{0pt}}
+\DeclareOption{openright}{\@openrighttrue}
+\DeclareOption{openany}{\@openrightfalse}
+\DeclareOption{leqno}{\input{leqno.clo}}
+\DeclareOption{fleqn}{\input{fleqn.clo}}
+%% \DeclareOption{openbib}{%
+%%   \AtEndOfPackage{%
+%%    \renewcommand\@openbib@code{%
+%%       \advance\leftmargin\bibindent
+%%       \itemindent -\bibindent
+%%       \listparindent \itemindent
+%%       \parsep \z@
+%%       }%
+%%    \renewcommand\newblock{\par}}%
+%% }
+\ExecuteOptions{letterpaper,10pt,twoside,onecolumn,final,openright}
+\ProcessOptions
+\input{bk1\@ptsize.clo}
 
 
 %% \providecommand*{\titcomment}{THESIS TITLE}
@@ -7,8 +45,6 @@
 %% \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 %% \ProcessOptions\relax
 
-%--------- Based on `book' class
-\LoadClass[letterpaper]{book}
 
 %--------- Include the following packages
 \RequirePackage{xparse}
