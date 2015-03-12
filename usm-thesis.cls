@@ -6,25 +6,21 @@
 %% ----------------------------- Identification 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{usm-thesis}[2015/03/08 v1.0b LaTeX package for USM thesis]
-%--------- Based on `book' class
-%% \LoadClass{book}
-\def\@ptsize{}
-\newif\if@openright
-\newif\if@mainmatter \@mainmattertrue
-\DeclareOption{letterpaper}{
-  \setlength\paperheight{11in}
-  \setlength\paperwidth{8.5in}}
-\DeclareOption{10pt}{\renewcommand\@ptsize{0}}
-\DeclareOption{11pt}{\renewcommand\@ptsize{1}}
-\DeclareOption{12pt}{\renewcommand\@ptsize{2}}
-\DeclareOption{oneside}{\@twosidefalse \@mparswitchfalse}
-\DeclareOption{twoside}{\@twosidetrue  \@mparswitchtrue}
-\DeclareOption{draft}{\setlength\overfullrule{5pt}}
-\DeclareOption{final}{\setlength\overfullrule{0pt}}
-\DeclareOption{openright}{\@openrighttrue}
-\DeclareOption{openany}{\@openrightfalse}
-\DeclareOption{leqno}{\input{leqno.clo}}
-\DeclareOption{fleqn}{\input{fleqn.clo}}
+\DeclareOption{letterpaper}{\PassOptionsToClass{letterpaper}{book}}
+\DeclareOption{10pt}{\PassOptionsToClass{10pt}{book}}
+\DeclareOption{11pt}{\PassOptionsToClass{11pt}{book}}
+\DeclareOption{12pt}{\PassOptionsToClass{12pt}{book}}
+\DeclareOption{oneside}{\PassOptionsToClass{oneside}{book}}
+\DeclareOption{twoside}{\PassOptionsToClass{twoside}{book}}
+\DeclareOption{draft}{\PassOptionsToClass{draft}{book}}
+\DeclareOption{final}{\PassOptionsToClass{final}{book}}
+\DeclareOption{openright}{\PassOptionsToClass{openright}{book}}
+\DeclareOption{openany}{\PassOptionsToClass{openany}{book}}
+\DeclareOption{leqno}{\PassOptionsToClass{leqno}{book}}
+\DeclareOption{fleqn}{\PassOptionsToClass{fleqn}{book}}
+\DeclareOption*{%
+  \ClassWarning{usm-thesis}{Unknown option `\CurrentOption' ignored}%
+}
 %% \DeclareOption{openbib}{%
 %%   \AtEndOfPackage{%
 %%    \renewcommand\@openbib@code{%
@@ -35,9 +31,12 @@
 %%       }%
 %%    \renewcommand\newblock{\par}}%
 %% }
-\ExecuteOptions{letterpaper,10pt,twoside,onecolumn,final,openright}
-\ProcessOptions
-\input{bk1\@ptsize.clo}
+\ExecuteOptions{10pt,twoside,onecolumn,final,openright}
+\ProcessOptions\relax
+%% \input{bk1\@ptsize.clo}
+
+%--------- Based on `book' class
+\LoadClass[letterpaper]{book}
 
 
 %% \providecommand*{\titcomment}{THESIS TITLE}
