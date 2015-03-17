@@ -62,7 +62,6 @@
 \RequirePackage[margin=20pt,format=hang,font=small,labelfont=sc,textfont=sl]{caption}
 %% \RequirePackage[Lenny]{fncychap}
 \RequirePackage{xcolor}
-\RequirePackage[linktocpage,colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=red]{hyperref}
 %% \hypersetup{linktocpage}
 \RequirePackage{subfigure}
 \RequirePackage{centernot}
@@ -74,11 +73,14 @@
 \RequirePackage{pgfplotstable}
 \RequirePackage[framemethod=tikz]{mdframed}
 \RequirePackage{siunitx}
+\RequirePackage{lmodern}
+\RequirePackage{etoolbox}
 %% \RequirePackage{bclogo}
 %% \RequirePackage[framemethod=tikz]{mdframed}
-\RequirePackage[paper=letterpaper,textwidth=169mm,textheight=229mm,hmarginratio=1:1,vmarginratio=1:1]{geometry}
-
-
+\RequirePackage[textwidth=169mm,textheight=229mm,hmarginratio=1:1,vmarginratio=1:1]{geometry}
+\AtEndPreamble{
+  \RequirePackage[linktocpage,colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=red]{hyperref}
+}
 
 \newcommand\HRule{\noindent\rule{\linewidth}{1.5pt}}
 
@@ -166,7 +168,7 @@
   \noindent \titcomment :%%\mbox{T\'ITULO DE LA TESIS:}
 
   \begin{center}
-    {\bf \sc \LARGE \thetitle}
+    { \sc \LARGE \thetitle}
   \end{center}
 
   \vspace{1.5cm}
@@ -174,7 +176,7 @@
   \noindent \autcomment :
 
   \begin{center}
-    {\bf\sc\Large \theauthor}
+    {\sc \Large \theauthor}
   \end{center}
 
   \vspace{\stretch{1}}
@@ -255,12 +257,17 @@
   \footrule
   \setfoot[\usepage][][]{\theauthor}{}{\usepage}}
 
+\appto\frontmatter{\pagestyle{special}}
+\appto\mainmatter{\pagestyle{main}}
+%% \appto\backmatter{\pagestyle{}}
+
+
 \makeatletter
 \def\@makechapterhead#1{%
   \vspace*{10\p@}%
   {\parindent \z@ \raggedleft \reset@font
    \@chapapp{} \thechapter\par\nobreak
-   {\Huge \scshape \bfseries #1\vadjust{\putline}\par\nobreak}%
+            {\Huge \bfseries #1\vadjust{\putline}\par\nobreak}%
    \vspace{40pt}
   }}
 \makeatother
