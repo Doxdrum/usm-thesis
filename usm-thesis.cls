@@ -5,7 +5,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%% Class Structure:
 %% ----------------------------- Identification 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{usm-thesis}[2015/03/08 v1.0b LaTeX package for USM thesis]
+\ProvidesClass{usm-thesis}[2015/03/08 v1.0c LaTeX package for USM thesis]
 \DeclareOption{letterpaper}{\PassOptionsToClass{letterpaper}{book}}
 \DeclareOption{10pt}{\PassOptionsToClass{10pt}{book}}
 \DeclareOption{11pt}{\PassOptionsToClass{11pt}{book}}
