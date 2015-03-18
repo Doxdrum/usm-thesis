@@ -1,5 +1,18 @@
 # Track List #
 
-- track001 :: Add the ~DeclareOptionPackage~ working with ~book~
-- track002 :: ~PassOptionToPackage~ for the ~babel~ package: Allow ~spanish~ and ~english~ options.
-- track003 :: Use ~xparse~ to redefine the command ~\CC~ to change the license according to the arguments
+- Progress [37%]
+  - [X] Add the ~DeclareOptionPackage~ working with ~book~
+  - [X] ~PassOptionToPackage~ for the ~babel~ package: Allow ~spanish~ and ~english~ options.
+  - [X] Use ~xparse~ to redefine the command ~\CC~ to change the license according to the arguments
+  - [-] Add pdfbookmarks automatically [3/4]
+    - [X] Titlepage
+    - [X] Committee
+    - [X] Table of Contents
+    - [ ] Bibliography
+  - [ ] Add the third CC license, including logo
+  - [ ] Make the license comment to change when ~spanish~ option is used with ~babel~.
+  - [ ] Create new global option ~nocolor~, for black-and-white printing
+  - [ ] DOCUMENTATION:
+    - [ ] New packages ~lmodern~ and ~etoolbox~
+    - [ ] About the compilation
+    - [ ] Explain global options

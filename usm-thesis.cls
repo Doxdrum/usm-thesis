@@ -31,21 +31,14 @@
 %%       }%
 %%    \renewcommand\newblock{\par}}%
 %% }
-\ExecuteOptions{10pt,twoside,onecolumn,final,openright}
+\ExecuteOptions{12pt,twoside,onecolumn,final,openright}
 \ProcessOptions\relax
-%% \input{bk1\@ptsize.clo}
 
-%--------- Based on `book' class
+
+%% --------- Based on `book' class
 \LoadClass[letterpaper]{book}
 
-
-%% \providecommand*{\titcomment}{THESIS TITLE}
-
-%% \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
-%% \ProcessOptions\relax
-
-
-%--------- Include the following packages
+%% --------- Include the following packages
 \RequirePackage{xparse}
 \RequirePackage{ifthen}
 \RequirePackage{amsmath} 
@@ -56,8 +49,6 @@
 \RequirePackage{mathrsfs}
 \RequirePackage{dsfont}
 \RequirePackage{stmaryrd}
-%% \RequirePackage{feyn}
-%% \RequirePackage{pdftricks}
 \RequirePackage{graphicx}
 \RequirePackage[margin=20pt,format=hang,font=small,labelfont=sc,textfont=sl]{caption}
 %% \RequirePackage[Lenny]{fncychap}
@@ -79,9 +70,6 @@
 
 \newcommand\HRule{\noindent\rule{\linewidth}{1.5pt}}
 
-\renewcommand{\normalsize}{\fontsize{12pt}{14pt}\selectfont}
-%\setlength{\textwidth}{14 cm}
-%\setlength{\textheight}{20 cm}
 \pagenumbering{arabic}
 
 %% Command for defining the title and author in the preamble
@@ -110,7 +98,6 @@
     {\large Departamento de F\'isica.}
   \end{center}
 
-
   \vspace*{\stretch{1}}
   \putline%\HRule
   \begin{center}%
@@ -124,24 +111,24 @@
     \begin{center}
       {{\Large\bf{\@thesisauthor}} \\ {{#1}}}%	
     \end{center}
-            \vspace*{\stretch{2}}%
+    \vspace*{\stretch{2}}%
     \begin{center}
-    {\parbox{12cm}{
-        \begin{center}
-          #2
-        \end{center}
-      }\vspace{5mm}}\\%
-    {#3}
+      {\parbox{12cm}{
+          \begin{center}
+            #2
+          \end{center}
+        }\vspace{5mm}}\\%
+      {#3}
     \end{center}
-%  \end{center}%
-  \@oldendtitlepage
-  %\cleardoublepage%
-  { \thispagestyle{empty}\newpage}
-  \DeclareRobustCommand{\comentario}{\parbox{14cm}{\begin{center} #2 \end{center}}}
+    %  \end{center}%
+    \@oldendtitlepage
+    %\cleardoublepage%
+        { \thispagestyle{empty}\newpage}
+        \DeclareRobustCommand{\comentario}{\parbox{14cm}{\begin{center} #2 \end{center}}}
 }
 
 
-%--------- Committee page
+%% --------- Committee page
 \DeclareRobustCommand{\titcomment}{THESIS~TITLE}
 \DeclareRobustCommand{\autcomment}{AUTHOR}
 \DeclareRobustCommand{\comcomment}{EXAMINATION~COMMITTEE}
@@ -251,8 +238,6 @@
 \appto\mainmatter{\pagestyle{main}}
 %% \appto\backmatter{\pagestyle{}}
 
-
-%\makeatletter
 \def\@makechapterhead#1{%
   \vspace*{10\p@}%
   {\parindent \z@ \raggedleft \reset@font
@@ -260,7 +245,7 @@
             {\Huge \bfseries #1\vadjust{\putline}\par\nobreak}%
    \vspace{40pt}
   }}
-%\makeatother
+
 \newcommand{\putline}{%
   \kern10pt %%% <-- adjust here
   \hbox{\tikz \shade[left color=blue!20,right color=blue, shading angle=45] (0,0) rectangle (\textwidth,5pt);}%
