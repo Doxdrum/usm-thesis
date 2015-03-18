@@ -11,13 +11,10 @@
 %%       BODY
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-\hypersetup{pageanchor=false}
-\pagestyle{empty}
 
 %% ------------------------------
 %%  Generate the title page
 %% ------------------------------
-
 \thesistitlepage{Advisor: Iv\'an Schmidt % Name of the advisor
 }{Trabajo de tesis presentado en cumplimiento parcial de los requisitos para el grado de Magister en Ciencias, menci\'on f\'isica, de la Universidad T\'ecnica Federico Santa Mar\'ia. % The thesis statement
 }{March, 2015 % The date
@@ -39,15 +36,13 @@
   {Stanley Kubrick}{Bates}
 }
 
-
+%% ---------- Dedication
 \Dedication{to my family}
 
-
+%% ---------- Creative Commons License
 \CC[by-sa]
 
 %% ---------- Table of Contents
-%% \cleardoublepage
-%% \pdfbookmark{\contentsname}{toc}
 \tableofcontents
 
 
@@ -70,15 +65,15 @@
 \input{Documents/ap2}
 
 
-%% ------------------
-%% --------- Final part
-%% ------------------
-
+%% ------------------------------
+%% Back matter
+%% ------------------------------
 \backmatter
 
 
 \nocite{IAS1,IAS2,Gilmore,Curtis,Bertlmann,Arnold,Freed, Nakahara,SUGRA-book,WeinbergQFT1,WeinbergQFT2,WeinbergQFT3,Castillo-Felisola:2013jva,Sternberg,Ivey,IASPark1,joyce2000,Joyce2007,CY-friends}
 
+%% ---------- Bibliography
 \bibliographystyle{utphys}
 \bibliography{References}
 \addcontentsline{toc}{chapter}{\bibname}

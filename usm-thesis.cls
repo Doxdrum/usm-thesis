@@ -266,6 +266,6 @@
   \hbox{\tikz \shade[left color=blue!20,right color=blue, shading angle=45] (0,0) rectangle (\textwidth,5pt);}%
 }
 
-\DeclareRobustCommand{\thesistitlepage}[3]{\pdfbookmark{\titlename}{portada}\titlepage{#1}{#2}{#3}}
+\DeclareRobustCommand{\thesistitlepage}[3]{\hypersetup{pageanchor=false}\pagestyle{empty}\pdfbookmark{\titlename}{portada}\titlepage{#1}{#2}{#3}}
 \let\oldtableofcontents=\tableofcontents
 \renewcommand\tableofcontents{\cleardoublepage\pdfbookmark{\contentsname}{toc}\oldtableofcontents}
