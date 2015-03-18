@@ -7,16 +7,16 @@
 }{The Author   %Here the Author
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       BODY
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%       BODY
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 \hypersetup{pageanchor=false}
 \pagestyle{empty}
 
-%------------------------------
-% Generate the title page
-%------------------------------
+%% ------------------------------
+%%  Generate the title page
+%% ------------------------------
 
 \thesistitlepage{Advisor: Iv\'an Schmidt % Name of the advisor
 }{Trabajo de tesis presentado en cumplimiento parcial de los requisitos para el grado de Magister en Ciencias, menci\'on f\'isica, de la Universidad T\'ecnica Federico Santa Mar\'ia. % The thesis statement
@@ -25,14 +25,13 @@
 
 
 
-%------------------------------
-% Front matter
-%------------------------------
+%% ------------------------------
+%%  Front matter
+%% ------------------------------
 \frontmatter
-%---------- front-matter page style
-%% \pagestyle{special}
 
-%---------- Committee page
+
+%% ---------- Committee page
 \committee{
   {Iv\'an Schmidt}{USM},
   {Jorge Zanelli}{CECS},
@@ -46,21 +45,20 @@
 
 \CC[by-sa]
 
-%---------- Table of Contents
-\cleardoublepage
-\pdfbookmark{\contentsname}{toc}
+%% ---------- Table of Contents
+%% \cleardoublepage
+%% \pdfbookmark{\contentsname}{toc}
 \tableofcontents
 
 
 
 
 
-%------------------------------
-% Main matter
-%------------------------------
+%% ------------------------------
+%% Main matter
+%% ------------------------------
 \mainmatter
-%---------- Main-matter page style
-%% \pagestyle{main}
+
 
 \input{Documents/ch1}
 \input{Documents/ch2}
@@ -72,9 +70,9 @@
 \input{Documents/ap2}
 
 
-%------------------
-%--------- Final part
-%------------------
+%% ------------------
+%% --------- Final part
+%% ------------------
 
 \backmatter
 

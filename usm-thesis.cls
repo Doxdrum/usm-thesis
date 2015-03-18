@@ -62,11 +62,8 @@
 \RequirePackage[margin=20pt,format=hang,font=small,labelfont=sc,textfont=sl]{caption}
 %% \RequirePackage[Lenny]{fncychap}
 \RequirePackage{xcolor}
-%% \hypersetup{linktocpage}
 \RequirePackage{subfigure}
 \RequirePackage{centernot}
-%% \RequirePackage{wrapfig}
-%% \RequirePackage{fancybox}
 \RequirePackage{array}
 \RequirePackage{tikz}
 \RequirePackage{pgfplots}
@@ -75,8 +72,6 @@
 \RequirePackage{siunitx}
 \RequirePackage{lmodern}
 \RequirePackage{etoolbox}
-%% \RequirePackage{bclogo}
-%% \RequirePackage[framemethod=tikz]{mdframed}
 \RequirePackage[textwidth=169mm,textheight=229mm,hmarginratio=1:1,vmarginratio=1:1]{geometry}
 \AtEndPreamble{
   \RequirePackage[linktocpage,colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=red]{hyperref}
@@ -209,7 +204,6 @@
 
 \DeclareRobustCommand{\Dedication}[1]{
   \newpage
-  %% \pdfbookmark{Dedication}{dedicatoria}
   \vspace*{\stretch{5}}
   \begin{flushright}
     {\Large #1}
@@ -223,17 +217,13 @@
   \ifthenelse{\equal{#1}{by-sa}}{Creative Commons Attribution-ShareAlike 4.0 International License}{}
   \ifthenelse{\equal{#1}{by-nc-sa}}{Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License}{}
 }
-%% \DeclareRobustCommand{\CCcomment}{Creative Commons Attribution-ShareAlike 4.0 International License}
 \definecolor{cccolor}{rgb}{.67,.7,.67}
 \DeclareRobustCommand{\CC}[1][by-sa]{
   \newpage
-  %% \pdfbookmark{Copyright}{copyright}
-  \vspace*{\stretch{5}}
-  
+  \vspace*{\stretch{5}}  
   \begin{mdframed}[outerlinecolor=black,outerlinewidth=2pt,linecolor=cccolor,middlelinewidth=3pt,roundcorner=10pt]    
     \begin{center}
       \CCintro~\href{\CClink{#1}}{\CCcomment{#1}}
-      %% This work is licensed under a \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons Attribution-ShareAlike 4.0 International License}.
       
       \includegraphics[scale=2]{Pictures/#1.pdf}
     \end{center}
@@ -241,7 +231,7 @@
   \vspace*{\stretch{1}}
 }
 
-%---------------- Titlesec 
+%% ---------------- Titlesec 
 \RequirePackage[explicit]{titlesec}
 \renewpagestyle{plain}[\small\sffamily\scshape]{
   \footrule
@@ -262,7 +252,7 @@
 %% \appto\backmatter{\pagestyle{}}
 
 
-\makeatletter
+%\makeatletter
 \def\@makechapterhead#1{%
   \vspace*{10\p@}%
   {\parindent \z@ \raggedleft \reset@font
@@ -270,14 +260,12 @@
             {\Huge \bfseries #1\vadjust{\putline}\par\nobreak}%
    \vspace{40pt}
   }}
-\makeatother
+%\makeatother
 \newcommand{\putline}{%
   \kern10pt %%% <-- adjust here
   \hbox{\tikz \shade[left color=blue!20,right color=blue, shading angle=45] (0,0) rectangle (\textwidth,5pt);}%
 }
 
-\newcommand{\thesistypeout}{\typeout{hepthesis: thesis- prefix commands are deprecated}}
-\DeclareRobustCommand{\thesistitlepage}[3]{\pdfbookmark{\titlename}{portada}\thesistypeout\titlepage{#1}{#2}{#3}}
-
-
-
+\DeclareRobustCommand{\thesistitlepage}[3]{\pdfbookmark{\titlename}{portada}\titlepage{#1}{#2}{#3}}
+\let\oldtableofcontents=\tableofcontents
+\renewcommand\tableofcontents{\cleardoublepage\pdfbookmark{\contentsname}{toc}\oldtableofcontents}
